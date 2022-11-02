@@ -1,20 +1,19 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import React, { FC } from 'react';
+import { Text } from 'react-native';
+import styled from 'styled-components/native';
 
-const App = () => {
+const App: FC = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>React Native Styled Componetns TS Tutorial</Text>
-    </SafeAreaView>
+    <Container>
+      <Text>React Native Styled Components TS Tutorial</Text>
+    </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
-
 export default App;
+
+const Container = styled.SafeAreaView`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
