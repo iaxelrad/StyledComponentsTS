@@ -1,11 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { Text } from 'react-native';
 import MainContainer from './components/Containers/MainContainer';
+import BigText from './components/Texts/BigText';
+import RegularText from './components/Texts/RegularText';
+import SmallText from './components/Texts/SmallText';
 
 const App: FunctionComponent = () => {
   return (
     <MainContainer>
-      <Text>React Native Styled Components TS Tutorial</Text>
+      <BigText>Big Text Here!</BigText>
+      <RegularText>Regular Text Here!</RegularText>
+      <SmallText>Small Text Here!</SmallText>
     </MainContainer>
   );
 };
