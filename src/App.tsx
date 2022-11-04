@@ -1,19 +1,13 @@
-import React, { FC } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Text } from 'react-native';
-import styled from 'styled-components/native';
+import MainContainer from './components/Containers/MainContainer';
 
-const App: FC = () => {
+const App: FunctionComponent = () => {
   return (
-    <Container>
+    <MainContainer>
       <Text>React Native Styled Components TS Tutorial</Text>
-    </Container>
+    </MainContainer>
   );
 };
 
 export default App;
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
