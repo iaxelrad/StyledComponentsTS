@@ -4,6 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 export interface ExtraInputProps {
   label: ReactNode;
   icon: ComponentProps<typeof MaterialCommunityIcons>['name'];
+  isPassword?: boolean;
 }
 
 export type InputProps = TextInputProps & ExtraInputProps;

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { InputProps } from './types';
@@ -20,6 +20,13 @@ const LeftIcon = styled.View`
   padding-right: 10px;
 `;
 
+const RightIcon = styled.TouchableOpacity`
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  z-index: 1;
+`;
+
 const InputField = styled.TextInput`
   background-color: ${primary};
   height: 60px;
@@ -38,15 +45,28 @@ const InputField = styled.TextInput`
 const StyledTextInput: FunctionComponent<InputProps> = ({
   icon,
   label,
+  isPassword,
   ...props
 }) => {
+  const [hidePassword, setHidePassword] = useState(true);
+
   return (
     <InputWrapper>
       <LeftIcon>
         <Icon name={icon} size={30} color={accent} />
       </LeftIcon>
       <SmallText>{label}</SmallText>
-      <InputField {...props} placeholderTextColor={gray} style={props.style} />
+        secureTextEntry={isPassword && hidePassword}
+      />
+      {isPassword && (
+        <RightIcon onPress={() => setHidePassword(!hidePassword)}>
+          <Icon
+            name={hidePassword ? 'eye-off' : 'eye'}
+            size={30}
+            color={black}
+          />
+        </RightIcon>
+      )}
     </InputWrapper>
   );
 };
