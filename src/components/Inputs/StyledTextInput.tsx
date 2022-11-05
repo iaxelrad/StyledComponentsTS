@@ -37,7 +37,7 @@ const InputField = styled.TextInput`
   margin-bottom: 10px;
   padding: 15px;
   padding-left: 65px;
-  padding-right: 65px;
+  padding-right: 55px;
   font-size: 16px;
   color: ${black};
 `;
@@ -48,7 +48,18 @@ const StyledTextInput: FunctionComponent<InputProps> = ({
   isPassword,
   ...props
 }) => {
+  const [inputBackgroundColor, setInputBackgroundColor] = useState(primary);
   const [hidePassword, setHidePassword] = useState(true);
+
+  const customOnFocus = () => {
+    props?.onFocus;
+    setInputBackgroundColor(secondary);
+  };
+
+  const customOnBlur = () => {
+    props?.onBlur;
+    setInputBackgroundColor(primary);
+  };
 
   return (
     <InputWrapper>
@@ -56,6 +67,12 @@ const StyledTextInput: FunctionComponent<InputProps> = ({
         <Icon name={icon} size={30} color={accent} />
       </LeftIcon>
       <SmallText>{label}</SmallText>
+      <InputField
+        {...props}
+        placeholderTextColor={gray}
+        style={[{ backgroundColor: inputBackgroundColor }, props.style]}
+        onFocus={customOnFocus}
+        onBlur={customOnBlur}
         secureTextEntry={isPassword && hidePassword}
       />
       {isPassword && (

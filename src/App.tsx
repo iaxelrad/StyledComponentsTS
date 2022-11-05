@@ -7,6 +7,7 @@ import SmallText from './components/Texts/SmallText';
 
 const App: FunctionComponent = () => {
   const [email, setEmail] = useState('');
+  const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
   return (
     <MainContainer>
@@ -21,6 +22,14 @@ const App: FunctionComponent = () => {
         onChangeText={setEmail}
         placeholder="email@eamil.com"
         keyboardType="email-address"
+        style={{ marginBottom: 20 }}
+      />
+      <StyledTextInput
+        label="Full Name"
+        icon="account"
+        value={fullName}
+        onChangeText={setFullName}
+        placeholder="John Doe"
         style={{ marginBottom: 20 }}
       />
       <StyledTextInput
