@@ -1,6 +1,7 @@
 import React, { useState, FunctionComponent } from 'react';
 import MainContainer from './components/Containers/MainContainer';
 import StyledTextInput from './components/Inputs/StyledTextInput';
+import RegularButton from './components/Buttons/RegularButton';
 import BigText from './components/Texts/BigText';
 import RegularText from './components/Texts/RegularText';
 import SmallText from './components/Texts/SmallText';
@@ -41,6 +42,12 @@ const App: FunctionComponent = () => {
         isPassword={true}
         style={{ marginBottom: 20 }}
       />
+      <RegularButton
+        onPress={() => {
+          // ANY ON PRESS ACTION
+        }}>
+        Press Me!
+      </RegularButton>
     </MainContainer>
   );
 };
