@@ -16,7 +16,9 @@ export const ThemeModeSwitch = () => {
   return (
     <StyledThemeContainer>
       <StyledSwitchWrapper>
-        <StyledToggleText>Dark mode</StyledToggleText>
+        <StyledToggleText>
+          {themeMode === DARK ? 'Dark mode' : 'Light Mode'}
+        </StyledToggleText>
         <Switch
           value={themeMode === DARK}
           onValueChange={value => {
